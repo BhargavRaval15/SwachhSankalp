@@ -1,0 +1,16 @@
+<%- include("../partials/header") %>
+
+<h2>Blogs</h2>
+
+<a href="/blogs/new">Create New Blog</a>
+
+<ul>
+  <% blogs.forEach(function(blog){ %>
+  <li>
+    <a href="/blogs/<%= blog._id %>"><%= blog.title %></a>
+    <p><%= blog.description %></p>
+  </li>     
+  <% }) %>
+</ul>
+
+<%- include("../partials/footer") %>
