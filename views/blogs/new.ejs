@@ -1,21 +1,26 @@
 <%- include('../partials/header') %>
 
-<h2>Create New Blog Post</h2>
+<h2 class="create-blog-title">Create New Blog Post</h2>
 
-<form action="/blogs" method="POST">
-  <div>
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title" required />
+<form class="create-blog-form" action="/blogs" method="POST">
+  <div class="form-group">
+    <label for="title" class="form-label">Title</label>
+    <input type="text" name="title" id="title" class="form-input" required />
   </div>
-  <div>
-    <label for="content">Content</label>
-    <textarea name="content" id="content" required></textarea>
+  <div class="form-group">
+    <label for="content" class="form-label">Content</label>
+    <textarea
+      name="content"
+      id="content"
+      class="form-textarea"
+      required
+    ></textarea>
   </div>
-  <div>
-    <label for="author">Author</label>
-    <input type="text" name="author" id="author" required />
+  <div class="form-group">
+    <label for="author" class="form-label">Author</label>
+    <input type="text" name="author" id="author" class="form-input" required />
   </div>
-  <button type="submit">Create Blog Post</button>
+  <button type="submit" class="submit-btn">Create Blog Post</button>
 </form>
 
 <%- include('../partials/footer') %>

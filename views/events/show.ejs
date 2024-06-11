@@ -1,8 +1,10 @@
 <%- include('../partials/header') %>
 
-<h2><%= event.title %></h2>
-<p><%= event.description %></p>
-<p>Date: <%= event.date ? event.date.toDateString() : 'No date available' %></p>
-<p>Location: <%= event.location %></p>
+<section class="event-details">
+  <h2><%= event.title %></h2>
+  <p class="event-description"><%= event.description %></p>
+  <p class="event-info">Date: <%= event.date ? event.date.toDateString() : 'No date available' %></p>
+  <p class="event-info">Location: <%= event.location %></p>
+</section>
 
 <%- include('../partials/footer') %>

@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
 const methodOverride = require("method-override");
+const passport = require("./config/passport-config");
 const app = express();
 
 mongoose.connect("mongodb://localhost:27017/swachh-sankalp", {
