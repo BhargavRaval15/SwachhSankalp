@@ -1,0 +1,27 @@
+<%- include("../partials/header") %>
+
+<section class="gallery-section">
+  <h2>Gallery</h2>
+  <a href="/gallery/new" class="new-image">Upload New Image</a>
+
+  <ul class="gallery-list">
+    <% images.forEach(function(image){ %>
+    <li class="gallery-item">
+      <a href="/gallery/<%= image._id %>" class="image-link">
+        <img
+          src="<%= image.imageUrl %>"
+          alt="<%= image.title %>"
+          class="image-thumbnail"
+        />
+      </a>
+      <p class="image-title"><%= image.title %></p>
+      <p class="image-description"><%= image.description %></p>
+      <p class="image-artist">Artist: <%= image.artist %></p>
+      <p class="image-points">Points: <%= image.points %></p>
+      <!-- Add more details as needed -->
+    </li>
+    <% }) %>
+  </ul>
+</section>
+
+<%- include("../partials/footer") %>

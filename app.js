@@ -38,11 +38,13 @@ const indexRoutes = require("./routes/index");
 const userRoutes = require("./routes/users");
 const eventRoutes = require("./routes/events");
 const blogRoutes = require("./routes/blogs");
+const galleryRoutes = require("./routes/gallery");
 
 app.use("/", indexRoutes);
 app.use("/users", userRoutes);
 app.use("/events", eventRoutes);
 app.use("/blogs", blogRoutes);
+app.use("/gallery", galleryRoutes);
 
 app.listen(3005, () => {
   console.log("SwachhSankalp server running on port 3005");
