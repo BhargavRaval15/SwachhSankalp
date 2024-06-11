@@ -68,6 +68,7 @@ body {
   }
   
   .events-title,
+  .gallery-title,
   .create-event-section h2,
   .blogs-section h2,
   .create-blog-title,
@@ -81,6 +82,7 @@ body {
   
   .new-event-btn,
   .new-blog,
+  .new-image-btn,
   .submit-btn {
     display: block;
     width: fit-content;

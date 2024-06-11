@@ -1,45 +1,27 @@
-<%- include('../partials/header') %>
+<%- include("../partials/header") %>
 
-<h2 class="create-image-title">Upload New Image</h2>
+<section class="create-event-section">
+  <h2>Create New Event</h2>
 
-<form
-  class="create-image-form"
-  action="/gallery"
-  method="POST"
-  enctype="multipart/form-data"
->
-  <div class="form-group">
-    <label for="title" class="form-label">Title</label>
-    <input type="text" name="title" id="title" class="form-input" required />
-  </div>
-  <div class="form-group">
-    <label for="description" class="form-label">Description</label>
-    <textarea
-      name="description"
-      id="description"
-      class="form-textarea"
-      required
-    ></textarea>
-  </div>
-  <div class="form-group">
-    <label for="artist" class="form-label">Artist</label>
-    <input type="text" name="artist" id="artist" class="form-input" required />
-  </div>
-  <div class="form-group">
-    <label for="image" class="form-label">Image</label>
-    <input type="file" name="image" id="image" class="form-input" required />
-  </div>
-  <div class="form-group">
-    <label for="points" class="form-label">Points</label>
-    <input
-      type="number"
-      name="points"
-      id="points"
-      class="form-input"
-      required
-    />
-  </div>
-  <button type="submit" class="submit-btn">Upload Image</button>
-</form>
+  <form action="/gallery" method="POST" class="create-gallery-form">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" name="title" id="title" required />
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea name="description" id="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="warrior">Warrior</label>
+      <input type="text" name="warrior" id="warrior" required />
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Image</label>
+      <input type="text" name="image" id="image" class="form-input" required />
+    </div>
+    <button type="submit" class="submit-btn">Add New Image</button>
+  </form>
+</section>
 
-<%- include('../partials/footer') %>
+<%- include("../partials/footer") %>
