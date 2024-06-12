@@ -3,7 +3,12 @@
 <section class="create-event-section">
   <h2>Create New Event</h2>
 
-  <form action="/gallery" method="POST" class="create-gallery-form">
+  <form
+    action="/gallery"
+    method="POST"
+    enctype="multipart/form-data"
+    class="create-gallery-form"
+  >
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" name="title" id="title" required />
@@ -17,8 +22,8 @@
       <input type="text" name="warrior" id="warrior" required />
     </div>
     <div class="form-group">
-      <label for="imageUrl">Image</label>
-      <input type="text" name="image" id="image" class="form-input" required />
+      <label for="image">Image</label>
+      <input type="file" name="image" id="image" class="form-input" required />
     </div>
     <button type="submit" class="submit-btn">Add New Image</button>
   </form>

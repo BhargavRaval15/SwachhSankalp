@@ -275,3 +275,100 @@ body {
   .submit-btn:hover {
     background-color: #005f47;
   }
+  /* Style for gallery items */
+.gallery-section {
+  text-align: center;
+}
+
+.gallery-title {
+  margin-bottom: 20px;
+}
+
+.new-image-btn {
+  display: block;
+  margin-bottom: 20px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.new-image-btn:hover {
+  background-color: #0056b3;
+}
+
+.gallery-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-item {
+  margin: 10px;
+  text-align: left;
+  width: 300px; /* Adjust the width of each gallery item */
+}
+
+.image-link {
+  text-decoration: none;
+}
+
+.image-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.image-title,
+.image-description,
+.image-warrior,
+.image-points {
+  margin: 5px 0;
+}
+.gallery-item {
+  margin: 10px;
+  text-align: left;
+  width: 300px; /* Adjust the width of each gallery item */
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensure text doesn't overflow outside the card */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative; /* Needed for absolute positioning of text */
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px); /* Move the item up slightly on hover */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+}
+
+.image-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0; /* Rounded corners only on the top */
+}
+
+.image-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for better readability */
+  padding: 10px;
+  color: #fff; /* Text color */
+  text-align: center; /* Center align the text */
+  border-radius: 0 0 5px 5px; /* Rounded corners only on the bottom */
+}
+
+.image-title,
+.image-description,
+.image-warrior,
+.image-points {
+  margin: 5px 0;
+}
+

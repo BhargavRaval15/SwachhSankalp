@@ -1,6 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const Gallery = require("../models/gallery");
+const multer = require("multer");
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage: storage });
 
 router.get("/", async (req, res) => {
   const images = await Gallery.find({});
@@ -11,14 +24,11 @@ router.get("/new", (req, res) => {
   res.render("gallery/new");
 });
 
-router.post("/", async (req, res) => {
-  const { title, description, warrior, imageUrl } = req.body;
-  const newImage = new Gallery({
-    title,
-    description,
-    warrior,
-    imageUrl,
-  });
+router.post("/", upload.single("image"), async (req, res) => {
+  const { title, description, warrior } = req.body;
+  const imageUrl = req.file ? req.file.path : "";
+
+  const newImage = new Gallery({ title, description, warrior, imageUrl });
   await newImage.save();
   req.flash("success_msg", "Image uploaded successfully");
   res.redirect("/gallery");
