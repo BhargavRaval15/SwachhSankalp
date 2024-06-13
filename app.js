@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const flash = require("connect-flash");
 const methodOverride = require("method-override");
-const passport = require("./config/passport-config");
 const multer = require("multer");
 const path = require("path");
 const app = express();
@@ -25,12 +24,14 @@ const storage = multer.diskStorage({
     );
   },
 });
-
 const upload = multer({ storage: storage });
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(express.static("public"));
+
 app.use(methodOverride("_method"));
+
 app.use(
   session({
     secret: "swachh-sankalp-secret",
@@ -40,8 +41,7 @@ app.use(
 );
 
 app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
+
 app.set("view engine", "ejs");
 
 app.use((req, res, next) => {
