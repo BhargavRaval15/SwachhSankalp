@@ -1,0 +1,14 @@
+<%- include("../partials/header") %>
+<section class="quote-section">
+  <h1>Quotes</h1>
+  <ul>
+    <% quotes.forEach(quote => { %>
+    <li>
+      <a href="/quote/<%= quote._id %>"
+        ><%= quote.text %> - <%= quote.author %></a
+      >
+    </li>
+    <% }) %>
+  </ul>
+</section>
+<%- include("../partials/footer") %>

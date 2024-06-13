@@ -71,7 +71,7 @@ router.get("/login", (req, res) => {
 });
 
 router.post("/login", authenticateUser, (req, res) => {
-  res.redirect("/");
+  res.redirect("/portal");
 });
 
 router.get("/logout", (req, res) => {

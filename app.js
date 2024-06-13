@@ -28,35 +28,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// app.get("/", (req, res) => {
-//   GallerySchema.find({}).then((data, err) => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     res.render("gallery", { items: data });
-//   });
-// });
-
-// app.post("/", upload.single("image"), (req, res, next) => {
-//   var obj = {
-//     name: req.body.name,
-//     desc: req.body.desc,
-//     img: {
-//       data: fs.readFileSync(
-//         path.join(__dirname + "/uploads/" + req.file.filename)
-//       ),
-//       contentType: "image/png",
-//     },
-//   };
-//   imgSchema.create(obj).then((err, item) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       // item.save();
-//       res.redirect("/");
-//     }
-//   });
-// });
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
@@ -69,10 +40,12 @@ app.use(
 );
 
 app.use(flash());
-
+app.use(passport.initialize());
+app.use(passport.session());
 app.set("view engine", "ejs");
 
 app.use((req, res, next) => {
+  res.locals.user = req.user || null;
   res.locals.success_msg = req.flash("success_msg");
   res.locals.error_msg = req.flash("error_msg");
   res.locals.error = req.flash("error");
@@ -84,6 +57,10 @@ const userRoutes = require("./routes/users");
 const eventRoutes = require("./routes/events");
 const blogRoutes = require("./routes/blogs");
 const galleryRoutes = require("./routes/gallery");
+const aboutRoutes = require("./routes/about");
+const quoteRoutes = require("./routes/quote");
+const contactRoutes = require("./routes/contact");
+const portalRoutes = require("./routes/portal");
 
 app.use("/", indexRoutes);
 app.use("/users", userRoutes);
@@ -91,6 +68,10 @@ app.use("/events", eventRoutes);
 app.use("/blogs", blogRoutes);
 app.use("/gallery", galleryRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/about", aboutRoutes);
+app.use("/quote", quoteRoutes);
+app.use("/contact", contactRoutes);
+app.use("/portal", portalRoutes);
 
 app.listen(3005, () => {
   console.log("SwachhSankalp server running on port 3005");

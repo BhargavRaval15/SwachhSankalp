@@ -1,4 +1,4 @@
-<%- include("../partials/header") %>
+<%- include("../partials/portal-header") %>
 
 <section class="blogs-section">
   <h2>Blogs</h2>
@@ -9,9 +9,9 @@
     <li class="blog-item">
       <a href="/blogs/<%= blog._id %>" class="blog-link"><%= blog.title %></a>
       <p class="blog-description"><%= blog.description %></p>
-    </li>     
+    </li>
     <% }) %>
   </ul>
 </section>
 
-<%- include("../partials/footer") %>
+<%- include("../partials/portal-footer") %>
