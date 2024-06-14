@@ -7,7 +7,7 @@
     <p class="error-msg"><%= error_msg %></p>
   <% } %>
 
-  <form action="/users/login" method="POST" class="login-form">
+  <form action="/users/login" method="POST" class="login-form" onsubmit="return validateLoginForm()">
     <div class="form-group">
       <label for="username" class="form-label">Username</label>
       <input type="text" name="username" id="username" class="form-input" required />
@@ -21,3 +21,10 @@
 </section>
 
 <%- include("partials/footer") %>
+
+<script>
+  function validateLoginForm() {
+    // You can add more validation if needed
+    return true;
+  }
+</script>
