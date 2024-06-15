@@ -48,4 +48,25 @@ router.post("/:id/points", async (req, res) => {
   res.redirect(`/gallery/${req.params.id}`);
 });
 
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    // Find the image by ID and delete it
+    const deletedImage = await Gallery.findByIdAndDelete(id);
+
+    if (!deletedImage) {
+      return res.status(404).send("Image not found");
+    }
+
+    // Optionally, you might want to update user points or perform other actions
+
+    // Redirect or respond with a success message
+    res.redirect("/gallery"); // Redirect to gallery page after deletion
+  } catch (err) {
+    console.error("Error deleting image:", err);
+    res.status(500).send("Server error");
+  }
+});
+
 module.exports = router;

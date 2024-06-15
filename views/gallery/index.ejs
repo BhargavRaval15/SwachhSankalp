@@ -2,23 +2,29 @@
 
 <section class="feature-section">
   <h2 class="feature-title">Gallery</h2>
+  <% if (user) { %>
+  <p class="user-points">Your Points: <%= user.points %></p>
+  <% } %>
   <a href="/gallery/new" class="new-btn">Upload New Image</a>
 
   <ul class="gallery-list">
     <% images.forEach(function(image) { %>
-      <li class="gallery-item">
-        <a href="/gallery/<%= image._id %>" class="image-link">
-          <img
-            src="/<%= image.imageUrl %>"
-            alt="<%= image.title %>"
-            class="image-thumbnail"
-          />
-        </a>
-        <p class="image-title"><%= image.title %></p>
-        <p class="image-description"><%= image.description %></p>
-        <p class="image-warrior">Warrior: <%= image.warrior %></p>
-        <p class="image-points">Points: <%= image.points %></p>
-      </li>
+    <li class="gallery-item">
+      <a href="/gallery/<%= image._id %>" class="image-link">
+        <img
+          src="/<%= image.imageUrl %>"
+          alt="<%= image.title %>"
+          class="image-thumbnail"
+        />
+      </a>
+      <p class="image-title"><%= image.title %></p>
+      <p class="image-description"><%= image.description %></p>
+      <p class="image-warrior">Warrior: <%= image.warrior %></p>
+      <p class="image-points">Points: <%= image.points %></p>
+      <form action="/gallery/<%= image._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="delete-btn">Delete</button>
+      </form>
+    </li>
     <% }) %>
   </ul>
 </section>

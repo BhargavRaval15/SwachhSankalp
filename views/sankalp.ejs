@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+
+<section class="sankalp-section">
+  <h2 class="sankalp-title">Swachhata Sankalp</h2>
+  <div class="sankalp-content" id="sankalp-content">
+    <!-- Each line of the Sankalp will be appended here dynamically -->
+  </div>
+  <p class="highlighted-slogan">
+    “Swachhata is our path, Vishwaguru is our goal. <br />
+    Together, we can make India a beacon of cleanliness and wisdom.”
+  </p>
+  <button id="sankalp-btn" class="sankalp-btn">I Take This Sankalp</button>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const lines = [
+      "I pledge to keep my surroundings clean and green.",
+      "I will actively participate in cleanliness drives",
+      "and spread awareness about the importance of",
+      "maintaining a clean environment.",
+      "By doing so, I contribute to making India",
+      "a Vishwaguru again, a leader in wisdom and sustainability.",
+    ];
+
+    const sankalpContent = document.getElementById("sankalp-content");
+
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        const p = document.createElement("p");
+        p.classList.add("sankalp-line");
+        p.textContent = line;
+        sankalpContent.appendChild(p);
+      }, index * 3000); // Delay each line by 3 seconds (3000 ms)
+    });
+
+    const takeSankalpBtn = document.getElementById("sankalp-btn");
+
+    takeSankalpBtn.addEventListener("click", function (event) {
+      event.preventDefault();
+      alert("Thank you for taking the Swachhata Sankalp!");
+      window.location.href = "/"; // Redirect to /index
+    });
+  });
+</script>
+
+<%- include("partials/footer") %>

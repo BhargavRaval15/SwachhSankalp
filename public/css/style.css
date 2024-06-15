@@ -277,6 +277,8 @@ body {
   padding: 50px;
   text-align: center;
   animation: fadeIn 2s;
+  margin-top: 0;
+  height: 100vh;
 }
 
 .feature-title{
@@ -556,7 +558,9 @@ body {
   text-align: left;
   animation: fadeInUp 1.5s;
 }
-
+.feature:hover{
+  transform: scale(1.05);
+}
 .features-title {
   font-size: 1.5em;
   color: #2980b9;
@@ -600,3 +604,189 @@ body {
   from { transform: translateY(-100%); }
   to { transform: translateY(0); }
 }
+.delete-btn {
+  background-color: #f44336; /* Red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+.highlighted-slogan {
+  font-size: 1.7em;
+  font-weight: bold;
+  color: #2c3e50; /* Dark color for emphasis */
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #f7f7f7; /* Light background for contrast */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 1s, color 1s;
+  animation: color-change 10s infinite;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #f7f7f7;
+    color: #2c3e50;
+  }
+  25% {
+    background-color: #d1e7dd;
+    color: #0f5132;
+  }
+  50% {
+    background-color: #cff4fc;
+    color: #055160;
+  }
+  75% {
+    background-color: #dcfffde7;
+    color: #663c00;
+  }
+  100% {
+    background-color: #f7f7f7;
+    color: #2c3e50;
+  }
+}
+/* @keyframes color-change {
+  0% {
+    background-color: #ffffff; 
+    color: #2c3e50;
+  }
+  25% {
+    background-color: #00ffd053; 
+    color: #2c3e50;
+  }
+  50% {
+    background-color: #ffffff; 
+    color: #2c3e50;
+  }
+  75% {
+    background-color: #ccffcc; 
+    color: #2c3e50;
+  }
+  100% {
+    background-color: #ffffff;
+    color: #2c3e50;
+  }
+} */
+/* @keyframes color-change {
+  0% {
+    background-color: #ffffff; 
+    color: #2c3e50;
+  }
+  25% {
+    background-color: #ffa20053; 
+    color: #2c3e50;
+  }
+  50% {
+    background-color: #ffffff;
+    color: #2c3e50;
+  }
+  75% {
+    background-color: #ccffcc;
+    color: #2c3e50;
+  }
+  100% {
+    background-color: #ffffff;
+    color: #2c3e50;
+  } */
+/* Styles for the Oath Page */
+.sankalp-section {
+  text-align: center;
+  background-color: #f4f6f8;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sankalp-title {
+  font-size: 2.5em;
+  color: #1d3557;
+  margin-bottom: 20px;
+}
+
+.sankalp-content {
+  font-size: 1.2em;
+  color: #6c757d;
+}
+
+.sankalp-text {
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.highlighted-slogan {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #2c3e50;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 1s, color 1s;
+  animation: color-change 5s infinite;
+}
+
+/* Oath link button styling */
+.sankalp-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.sankalp-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: #ffffff;
+  background-color: #1d3557;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.sankalp-btn:hover {
+  background-color: #457b9d;
+  color: #ffffff;
+}
+
+@keyframes color-change {
+  0% {
+    background-color: #ffffff; /* Light white */
+    color: #2c3e50;
+  }
+  25% {
+    background-color: #ffefd5; /* Very light saffron */
+    color: #2c3e50;
+  }
+  50% {
+    background-color: #ffffff; /* Light white */
+    color: #2c3e50;
+  }
+  75% {
+    background-color: #e6ffe6; /* Very light green */
+    color: #2c3e50;
+  }
+  100% {
+    background-color: #ffffff; /* Light white */
+    color: #2c3e50;
+  }
+}
+
+
