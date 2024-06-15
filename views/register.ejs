@@ -4,26 +4,74 @@
   <h2 class="register-title">Register</h2>
 
   <% if (error_msg) { %>
-    <p class="error-msg"><%= error_msg %></p>
+  <p class="error-msg"><%= error_msg %></p>
   <% } %>
 
-  <form action="/users/register" method="POST" class="registration-form" onsubmit="return validateRegisterForm()">
+  <form
+    action="/users/register"
+    method="POST"
+    class="registration-form"
+    onsubmit="return validateRegisterForm()"
+  >
     <div class="form-group">
       <label for="username" class="form-label">Username</label>
-      <input type="text" name="username" id="username" class="form-input" required />
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="form-input"
+        required
+      />
+      <p
+        id="username-error"
+        class="form-error"
+        style="color: red; font-size: 0.9em"
+      ></p>
+      <!-- Inline styles -->
     </div>
     <div class="form-group">
       <label for="email" class="form-label">Email</label>
       <input type="email" name="email" id="email" class="form-input" required />
+      <p
+        id="email-error"
+        class="form-error"
+        style="color: red; font-size: 0.9em"
+      ></p>
+      <!-- Inline styles -->
     </div>
     <div class="form-group">
       <label for="password" class="form-label">Password</label>
-      <input type="password" name="password" id="password" class="form-input" required />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-input"
+        required
+      />
+      <p
+        id="password-error"
+        class="form-error"
+        style="color: red; font-size: 0.9em"
+      ></p>
+      <!-- Inline styles -->
     </div>
     <div class="form-group">
       <label for="password2" class="form-label">Confirm Password</label>
-      <input type="password" name="password2" id="password2" class="form-input" required />
+      <input
+        type="password"
+        name="password2"
+        id="password2"
+        class="form-input"
+        required
+      />
+      <p
+        id="password2-error"
+        class="form-error"
+        style="color: red; font-size: 0.9em"
+      ></p>
+      <!-- Inline styles -->
     </div>
+
     <button type="submit" class="submit-btn">Register</button>
   </form>
 </section>
@@ -32,14 +80,48 @@
 
 <script>
   function validateRegisterForm() {
-    var password = document.getElementById('password').value;
-    var password2 = document.getElementById('password2').value;
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const password2 = document.getElementById("password2").value;
+    const usernameError = document.getElementById("username-error");
+    const emailError = document.getElementById("email-error");
+    const passwordError = document.getElementById("password-error");
+    const password2Error = document.getElementById("password2-error");
 
-    if (password !== password2) {
-      alert("Passwords do not match");
-      return false;
+    // Reset previous errors
+    usernameError.textContent = "";
+    emailError.textContent = "";
+    passwordError.textContent = "";
+    password2Error.textContent = "";
+
+    let isValid = true;
+
+    // Validate username
+    if (username === "" || /\d/.test(username)) {
+      usernameError.textContent = "Username cannot be empty or contain numbers";
+      isValid = false;
     }
 
-    return true;
+    // Validate email
+    if (email === "" || !email.includes("@")) {
+      emailError.textContent = "Email cannot be empty or invalid";
+      isValid = false;
+    }
+
+    // Validate password
+    if (password === "" || password.length < 6) {
+      passwordError.textContent = "Password must be at least 6 characters";
+      isValid = false;
+    }
+
+    // Validate password confirmation
+    if (password !== password2) {
+      password2Error.textContent = "Passwords do not match";
+      isValid = false;
+    }
+
+    // Return validity status
+    return isValid;
   }
 </script>

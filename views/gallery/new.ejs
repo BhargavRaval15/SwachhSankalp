@@ -1,7 +1,7 @@
 <%- include("../partials/portal-header") %>
 
-<section class="create-event-section">
-  <h2>Create New Event</h2>
+<section class="feature-section">
+  <h2 class="create-gallery-title">Add Images</h2>
 
   <form
     action="/gallery"
@@ -10,19 +10,19 @@
     class="create-gallery-form"
   >
     <div class="form-group">
-      <label for="title">Title</label>
-      <input type="text" name="title" id="title" required />
+      <label for="title" class="form-label">Title</label>
+      <input type="text" name="title" id="title" class="form-input" required />
     </div>
     <div class="form-group">
-      <label for="description">Description</label>
-      <textarea name="description" id="description" required></textarea>
+      <label for="description" class="form-label">Description</label>
+      <textarea name="description" id="description" class="form-textarea" required></textarea>
     </div>
     <div class="form-group">
-      <label for="warrior">Warrior</label>
-      <input type="text" name="warrior" id="warrior" required />
+      <label for="warrior" class="form-label">Warrior</label>
+      <input type="text" name="warrior" id="warrior" class="form-input" required />
     </div>
     <div class="form-group">
-      <label for="image">Image</label>
+      <label for="image" class="form-label">Image</label>
       <input type="file" name="image" id="image" class="form-input" required />
     </div>
     <button type="submit" class="submit-btn">Add New Image</button>
