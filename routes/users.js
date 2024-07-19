@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
+const bcryptjs = require("bcryptjs");
 
 // Middleware to authenticate user
 const authenticateUser = async (req, res, next) => {
   const { username, password } = req.body;
   try {
     const user = await User.findOne({ username: username });
-    if (!user || user.password !== password) {
+    const validPassword = await bcryptjs.compare(password, user.password)
+
+    if (!user || !validPassword) {
       req.flash("error_msg", "Incorrect username or password");
       return res.redirect("/users/login");
     }
@@ -31,10 +34,10 @@ router.post("/register", async (req, res) => {
   let errors = [];
 
   if (!username || !password || !password2) {
-    errors.push({ msg: "Please fill in all fields" });
+    errors.push({ msg: "Please fill in required fields" });
   }
   if (password !== password2) {
-    errors.push({ msg: "Passwords do not match" });
+    errors.push({ msg: "Confirmation passwords does not match" });
   }
 
   if (password.length < 6) {
@@ -50,7 +53,10 @@ router.post("/register", async (req, res) => {
         errors.push({ msg: "Username already exists" });
         res.render("register", { errors, username, password, password2 });
       } else {
-        const newUser = new User({ username, password });
+
+        const salt = await bcryptjs.genSalt(10)
+        const hashedPassword = await bcryptjs.hash(password, salt)
+        const newUser = new User({ username,password: hashedPassword });
         await newUser.save();
         req.flash("success_msg", "You are now registered and can log in");
         res.redirect("/users/login");

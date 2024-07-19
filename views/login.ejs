@@ -4,17 +4,34 @@
   <h2 class="login-title">Login</h2>
 
   <% if (error_msg) { %>
-    <p class="error-msg"><%= error_msg %></p>
+  <p class="error-msg"><%= error_msg %></p>
   <% } %>
 
-  <form action="/users/login" method="POST" class="login-form" onsubmit="return validateLoginForm()">
+  <form
+    action="/users/login"
+    method="POST"
+    class="login-form"
+    onsubmit="return validateLoginForm()"
+  >
     <div class="form-group">
       <label for="username" class="form-label">Username</label>
-      <input type="text" name="username" id="username" class="form-input" required />
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="form-input"
+        required
+      />
     </div>
     <div class="form-group">
       <label for="password" class="form-label">Password</label>
-      <input type="password" name="password" id="password" class="form-input" required />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-input"
+        required
+      />
     </div>
     <button type="submit" class="submit-btn">Login</button>
   </form>
